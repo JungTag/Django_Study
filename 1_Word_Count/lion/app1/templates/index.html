@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+</head>
+<body>
+    hello, This is index
+    <a href="{% url 'about' %}">go to about</a>
+    <form action="{% url 'result' %}" method="POST">
+        {% csrf_token%}
+        <textarea name="text" cols="30" rows="10"></textarea>
+        <button type="submit">submit</button>
+    </form>
+</body>
+</html>

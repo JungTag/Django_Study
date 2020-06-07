@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% for post in post_list %}
+    <h1><a href="{% url 'detail' post.id post.title %}">{{post.title}}</a></h1>
+    post id > views로 넘겨주면 되지 않을까?
+    {{post.id}} == {{post.pk}} => pk는 데이터베이스에서 쓰는 용어
+    웹: request -> url -> views -> <html></html>
+    {% endfor %}
+</body>
+</html>
