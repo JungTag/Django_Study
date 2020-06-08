@@ -32,3 +32,4 @@ def result(request):
     }
 
     return render(request, 'result.html', context)
+    # 3번째 인자에 직접 {"count": text_count, ... ,}의 형태로 줘도 됨!
