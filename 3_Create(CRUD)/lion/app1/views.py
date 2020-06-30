@@ -6,8 +6,8 @@ def index(request):
     my_post = Post.objects.all()
     return render(request, 'index.html', {'all_post': my_post})
 
-def detail(request, id):
-    result = Post.objects.get(id = id)
+def detail(request, num):
+    result = Post.objects.get(id = num)
     return render(request, 'detail.html', {'content': result})
 
 def new(request):
@@ -21,4 +21,4 @@ def create(request):
     post.save() 
     # save를 마지막에 해야 데이터의 일관성이 유지됨!!
     return redirect('/detail/'+str(post.id))
-    # render는 최종, redirect는 throws로 넘긴
+    # render는 최종, redirect는 throws로 넘긴다.
