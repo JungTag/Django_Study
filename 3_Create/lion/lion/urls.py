@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app1 import views
+from django.conf import settings # settings.py
+from django.conf.urls.static import static # static에 관련된 url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +27,7 @@ urlpatterns = [
     path('create/', views.create, name = 'create'),
     path('update/<int:num>', views.update, name="update"),  # update/2 -> update(request, num(views의 매개변수명과 같아야 함!) = num)
     path('delete/<int:num>', views.delete, name="delete"),  # delete/2 -> delete(request, num = 2)
+    path('album/', views.album, name = 'album'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

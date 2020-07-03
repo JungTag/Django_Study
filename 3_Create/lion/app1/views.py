@@ -38,3 +38,7 @@ def delete(request, num):
     post = Post.objects.get(id=num)
     post.delete()
     return redirect('/') # home -> url이 없는 것을 의미
+
+def album(request):
+    img = Album.objects.all()
+    return render(request, 'album.html', {"imgs" : img})
