@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app1 import views
 from django.conf import settings # settings.py
 from django.conf.urls.static import static # static에 관련된 url
@@ -22,12 +22,8 @@ from django.conf.urls.static import static # static에 관련된 url
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name = 'index'),
-    path('detail/<int:id>', views.detail, name = 'detail'),
-    path('new/', views.new, name = 'new'),
-    path('create/', views.create, name = 'create'),
-    path('update/<int:num>', views.update, name="update"),  # update/2 -> update(request, num(views의 매개변수명과 같아야 함!) = num)
-    path('delete/<int:num>', views.delete, name="delete"),  # delete/2 -> delete(request, num = 2)
-    path('album/', views.album, name = 'album'),
+    path('blog/', include('app1.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
