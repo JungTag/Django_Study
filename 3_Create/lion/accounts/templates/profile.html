@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Sign Up!</h1>
+
+<form method="POST" action="{% url 'profile' %}">
+
+{% csrf_token %}
+Username:
+<br>
+<input name="username"  type="text" value="{{profile.user.username}}" disabled>
+<br>
+Password:
+<br>
+<input name="password1"  type="password" value="">
+<br>
+Confirm Password:
+<br>
+<input name="password2"  type="password" value="">
+<br>
+Major:
+<br>
+<input name="major"  type="text" value="{{profile.major}}">
+<br>
+Phone:
+<br>
+<input name="phone"  type="text" value="{{profile.phone}}">
+<br>
+<br>
+<input class="btn btn-primary" type="submit" value="수정하기">
+</form>
+
+{% endblock %}
