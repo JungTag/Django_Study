@@ -15,12 +15,13 @@ def new(request):
 
 def create(request):
     post = Post()
+    post.user = request.user
     post.title = request.GET['title']
     post.body = request.GET['body']
     post.pub_date = timezone.datetime.now()
     post.save() 
     # save를 마지막에 해야 데이터의 일관성이 유지됨!!
-    return redirect('detail', num = post.id)
+    return redirect('detail', id = post.id)
     # render는 최종, redirect는 throws로 넘긴다.
 
 def update(request, num): # 매개변수명이 url이랑 같아야 한다.
@@ -30,7 +31,7 @@ def update(request, num): # 매개변수명이 url이랑 같아야 한다.
         post.title = request.POST['title']
         post.body = request.POST['body']
         post.save()
-        return redirect('detail', num = post.id)
+        return redirect('detail', id = post.id)
     # 수정할 글을 보내주겠다.
     return render(request, 'update.html', {"result" : post})
 

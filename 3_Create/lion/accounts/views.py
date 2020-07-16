@@ -26,7 +26,7 @@ def login(request):
         user = auth.authenticate(request, username = username, password = password) 
         # 진위여부 판단(request가 들어올 때)
 
-        if user is not None:
+        if user is not None: # 유저가 존재
             auth.login(request, user)
             return redirect('index')
         else:

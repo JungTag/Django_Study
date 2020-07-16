@@ -5,7 +5,8 @@
 <h1>Sign Up!</h1>
 
 <form method="POST" action="{% url 'profile' %}">
-
+<!-- {{user.signup.username}}-->
+<!-- User 객체에 직접적으로 연결하지 않았더라도, user.1대1모델의 소문자이름.필드로 접근 가능-->
 {% csrf_token %}
 Username:
 <br>

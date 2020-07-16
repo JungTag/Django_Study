@@ -35,6 +35,15 @@
         <div>
             <a href="{% url 'detail' row.id %}"><h1>제목 : {{row.title}}</h1></a><br>
         </div>
+        <h3>작성자 : {{row.user.username}}</h3>
+        <!-- row => Post객체
+            row.user => User객체
+            row.user.username => User객체의 username을 받아온다.
+
+            row.user.signup => Signup 객체(1대1 관계이므로 이렇게 접근할 수 있다.)
+            다만 소문자로 접근해야 됨!(Signup 안됨)
+            row.user.signup.std_num
+        -->
         <br>
 		    {%endfor%}
         <a href="{% url 'index' %}">돌아가기</a>

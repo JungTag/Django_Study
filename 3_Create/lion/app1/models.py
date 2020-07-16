@@ -1,7 +1,13 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 class Post(models.Model):
+    user = models.ForeignKey(User, on_delete = models.CASCADE) # 1:n 관계를 표현
+    '''
+    1 : n -> n : 1, n을 담당하는 테이블에 연결을 해줘야 한다.
+    Post(n)에 유저(1)를 연결
+    '''
     title = models.CharField(max_length=200)
     body = models.TextField()
     pub_date = models.DateTimeField('date published')
